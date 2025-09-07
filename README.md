@@ -29,24 +29,7 @@ https://openapi.programming-hero.com/api/plant/${id}
 ```bash
 https://openapi.programming-hero.com/api/plant/1
 ```
-
-#### 3) About Campaign
-- **Section heading**  
-- **Image on the left**, **text on the right**  
-
-#### 4) Our Impact Section 
-- Show **3 cards** with campaign **statistics**  
-
-#### 5) Plant a Tree Today Section & Footer
-- **Form**: Name, Email, Number of Trees  
-- **Footer** with copyright info 
-
-#### 6) Responsiveness 
-- Website must be **mobile responsive**  
-
----
 #### 7) Create a README file to answer the following question-
-
 
 #### 1) What is the difference between var, let, and const?
 
