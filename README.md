@@ -30,19 +30,9 @@ Ans:
 5) Explain template literals in ES6. How are they different from string concatenation?
 
 Ans:
-    Template literals are one of the most loved and widely used features of ES6. They provide a much more powerful and readable way to work with strings compared to traditional string concatenation.
-
-# Green Earth
+    Template literals are one of the most loved and widely used features of ES6. They provide a much more powerful and readable way to work with strings compared to traditional string concatenation.Template literals offer a more modern and readable approach, reducing the risk of syntax errors and improving code clarity. They are the preferred method for creating dynamic strings in modern JavaScript.
 
 
-## Private Repository: https://classroom.github.com/a/nVZrg5R9 
-
-## Alternative Private Repository: https://classroom.github.com/a/KCGI14ST 
-
-## Alternative Private Repository: https://classroom.github.com/a/JMuIYqgK 
-
-
----
 🌴 API Endpoints
 ---
 1. Get 🌴All Plants
