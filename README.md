@@ -19,18 +19,18 @@ Ans:
 3) What are arrow functions in ES6?
 
 Ans:
-    i. 
+    Arrow functions are a shorter way to write functions in JavaScript, introduced in ES6. They use the => (arrow) syntax instead of the traditional function keyword.
 
 
 4) How does destructuring assignment work in ES6?
 
-Ans:
+Ans: 
+    Destructuring assignment in ES6 is a powerful feature that allows you to extract values from arrays or properties from objects and assign them to variables in a concise and intuitive way. It simplifies the process of unpacking data from arrays and objects.
 
 5) Explain template literals in ES6. How are they different from string concatenation?
+
 Ans:
-
-
-
+    Template literals are one of the most loved and widely used features of ES6. They provide a much more powerful and readable way to work with strings compared to traditional string concatenation.
 
 # Green Earth
 
@@ -75,9 +75,6 @@ https://openapi.programming-hero.com/api/plant/${id}
 https://openapi.programming-hero.com/api/plant/1
 ```
 ---
-
-
-
 
 ## ✅ Main Requirements 
 
