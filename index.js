@@ -60,7 +60,7 @@ const displayPlants = (plants) => {
                     <img class="min-w-[250px] h-[170px]" src="${plant.image}" alt="${plant.name}" />
                 </figure>
                 <div class="card-body">
-                    <h2 class="card-title text-[10px] font-semibold">${plant.name}</h2>
+                    <h2 class="card-title text-[10px] font-semibold cursor-pointer" data-id="${plant.id}">${plant.name}</h2>
                     <p class="text-[8px]">${plant.description}</p>
                     <div class="flex justify-between items-center">
                         <div class="bg-[#DCFCE7] p-2 rounded-full text-[10px]">${plant.category}</div>
@@ -73,8 +73,42 @@ const displayPlants = (plants) => {
             </div>
         `;
         allPlants.append(btnDiv);
+
+        const plantNameEl = btnDiv.querySelector('h2');
+        plantNameEl.addEventListener('click', () => {
+            const id = plantNameEl.getAttribute('data-id');
+            showPlantDetail(id);
+        });
     }
 }
 
 loadCategories();
 loadPlants();
+
+
+
+
+// Modal
+const plantModal = document.getElementById('plantModal');
+const modalContent = document.getElementById('modalContent');
+const closeModal = document.getElementById('closeModal');
+
+closeModal.addEventListener('click', () => {
+    plantModal.classList.add('hidden');
+});
+
+const showPlantDetail = (id) => {
+    fetch(`https://openapi.programming-hero.com/api/plant/${id}`)
+        .then(res => res.json())
+        .then(json => {
+            const plant = json.plants;
+            modalContent.innerHTML = `
+                <h2 class="text-lg font-bold mb-2">${plant.name}</h2>
+                <img class="w-full h-[200px] object-cover mb-2" src="${plant.image}" alt="${plant.name}" />
+                <p class="mb-2"><strong>Category:</strong> ${plant.category}</p>
+                <p class="mb-2"><strong>Price:</strong> ৳${plant.price}</p>
+                <p class="mb-2"><strong>Description:</strong> ${plant.description}</p>
+            `;
+            plantModal.classList.remove('hidden');
+        });
+}
