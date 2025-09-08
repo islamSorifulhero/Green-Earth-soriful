@@ -4,23 +4,15 @@
 
 Ans: 
     i. var is the oldest keyword: We are  Avoid using var in modern JavaScript (ES6+). Its function-scoping and hoisting behavior can lead to unexpected bugs that let and const were designed to solve.
-     
-
-     ii. let when our need reassignment: We are use it for loop counters or variables that need to change value.
-
-
-     iii. By default, const: We use this for every variable declaration. If we later find out that we need to reassign it, we change it to let.
+    ii. let when our need reassignment: We are use it for loop counters or variables that need to change value.
+    iii. By default, const: We use this for every variable declaration. If we later find out that we need to reassign it, we change it to let.
 
 
 2) What is the difference between map(), forEach(), and filter?
 
 Ans: 
     i. forEach() is used to iterate over the elements of an array. It executes a provided function once for each array element.
-
-
     ii. map() is used to transform the elements of an array. It creates a new array by calling a provided function on every element in the original array.
-
-
     iii. filter() is used to select elements from an array that meet a specific condition. It creates a new array with all elements that pass the test implemented by the provided function.
       
 
@@ -29,9 +21,14 @@ Ans:
 Ans:
     i. 
 
-    
+
 4) How does destructuring assignment work in ES6?
+
+Ans:
+
 5) Explain template literals in ES6. How are they different from string concatenation?
+Ans:
+
 
 
 
