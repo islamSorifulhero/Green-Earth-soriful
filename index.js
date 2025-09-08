@@ -1,3 +1,15 @@
+// Get 🌴All Plants
+// https://openapi.programming-hero.com/api/plants
+// Get 🌴All categories
+// https://openapi.programming-hero.com/api/categories
+// Get 🌴plants by categories
+// https://openapi.programming-hero.com/api/category/${id}
+// https://openapi.programming-hero.com/api/category/1
+// Get 🌴Plants Detail
+// https://openapi.programming-hero.com/api/plant/${id}
+// https://openapi.programming-hero.com/api/plant/1
+
+
 const allCategories = document.getElementById('all-categories');
 
 
@@ -36,17 +48,39 @@ const displayCategory = (categories) => {
     }
 }
 
+const showSpinner = () => {
+    document.getElementById('loading-spinner').classList.remove('hidden');
+}
+
+const hideSpinner = () => {
+    document.getElementById('loading-spinner').classList.add('hidden');
+}
+
 const loadPlants = () => {
+    showSpinner()
     fetch('https://openapi.programming-hero.com/api/plants')
-        .then(res => res.json())
-        .then(json => displayPlants(json.plants))
+        .then((res) => res.json())
+        .then((json) => {
+            displayPlants(json.plants);
+            hideSpinner();
+        })
 }
 
 const loadPlantsByCategory = (categoryId) => {
+    showSpinner();
     fetch(`https://openapi.programming-hero.com/api/category/${categoryId}`)
         .then(res => res.json())
-        .then(json => displayPlants(json.plants))
+        .then(json => {
+            displayPlants(json.plants)
+            hideSpinner()
+        })
 }
+
+
+// right side
+let cart = [];
+const cartDiv = document.querySelector('.right-head .right-main');
+
 
 const displayPlants = (plants) => {
     const allPlants = document.getElementById('all-plants');
@@ -67,7 +101,10 @@ const displayPlants = (plants) => {
                         <div class='text-[12px]'>৳${plant.price}</div>
                     </div>
                     <div class="card-actions justify-end">
-                        <button class="btn bg-[#15803D] rounded-full text-white text-[12px] font-medium w-full">Add to Cart</button>
+                        <button class="btn bg-[#15803D] rounded-full text-white text-[12px] font-medium w-full add-to-cart" data-id="${plant.id}"
+                        data-name="${plant.name}"
+                        data-price="${plant.price}"
+                        >Add to Cart</button>
                     </div>
                 </div>
             </div>
@@ -79,11 +116,56 @@ const displayPlants = (plants) => {
             const id = plantNameEl.getAttribute('data-id');
             showPlantDetail(id);
         });
+
+
+        const addBtn = btnDiv.querySelector('.add-to-cart');
+        addBtn.addEventListener('click', () => {
+            const name = addBtn.getAttribute('data-name')
+            const price = parseFloat(addBtn.getAttribute('data-price'))
+
+            alert(`${plant.name} has been added to the cart`);
+
+            cart.push({ name, price })
+            updateCart();
+        });
     }
+}
+
+const updateCart = () => {
+    if (!cartDiv) return;
+
+    let cartHTML = `<h2 class = "card-title">Your Cart</h2>`;
+    let total = 0;
+
+    cart.forEach((item, index) => {
+        cartHTML += `
+        <div class="flex justify-between items-center bg-[#F0FDF4] p-2 rounded mb-2">
+                                <div>
+                                    <h1>${item.name}</h1>
+                                    <p>৳${item.price}</p>
+                                </div>
+                                <div class="cursor-pointer text-red-500 remove-item" data-index="${index}">❌</div>
+                            </div>
+        `;
+        total += item.price;
+    })
+    cartHTML += `<hr class="my-2"><p><strong>Total: ৳${total}</strong></p>`;
+    cartDiv.innerHTML = cartHTML;
+
+    const removeBtns = cartDiv.querySelectorAll('.remove-item');
+    removeBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const index = btn.getAttribute('data-index');
+            cart.splice(index, 1)
+            updateCart()
+        })
+    })
 }
 
 loadCategories();
 loadPlants();
+
+
 
 
 
@@ -112,3 +194,7 @@ const showPlantDetail = (id) => {
             plantModal.classList.remove('hidden');
         });
 }
+
+
+
+
