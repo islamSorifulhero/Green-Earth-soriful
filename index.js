@@ -117,7 +117,6 @@ const displayPlants = (plants) => {
             showPlantDetail(id);
         });
 
-
         const addBtn = btnDiv.querySelector('.add-to-cart');
         addBtn.addEventListener('click', () => {
             const name = addBtn.getAttribute('data-name')
@@ -165,11 +164,6 @@ const updateCart = () => {
 loadCategories();
 loadPlants();
 
-
-
-
-
-
 // Modal
 const plantModal = document.getElementById('plantModal');
 const modalContent = document.getElementById('modalContent');
@@ -194,7 +188,3 @@ const showPlantDetail = (id) => {
             plantModal.classList.remove('hidden');
         });
 }
-
-
-
-
