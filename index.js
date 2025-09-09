@@ -89,13 +89,13 @@ const displayPlants = (plants) => {
     for (const plant of plants) {
         const btnDiv = document.createElement('div');
         btnDiv.innerHTML = `
-            <div class="card bg-base-100 w-full shadow-sm">
+            <div class="card bg-base-100 w-full shadow-sm min-h-[430px]">
                 <figure>
-                    <img class="min-w-[250px] h-[170px]" src="${plant.image}" alt="${plant.name}" />
+                    <img class="min-w-full md:min-w-[250px] h-full md:h-[170px]" src="${plant.image}" alt="${plant.name}" />
                 </figure>
                 <div class="card-body">
-                    <h2 class="card-title text-[10px] font-semibold cursor-pointer" data-id="${plant.id}">${plant.name}</h2>
-                    <p class="text-[8px]">${plant.description}</p>
+                    <h2 class="card-title text-sm font-semibold cursor-pointer" data-id="${plant.id}">${plant.name}</h2>
+                    <p class="text-xs">${plant.description}</p>
                     <div class="flex justify-between items-center">
                         <div class="bg-[#DCFCE7] p-2 rounded-full text-[10px]">${plant.category}</div>
                         <div class='text-[12px]'>৳${plant.price}</div>
@@ -143,7 +143,7 @@ const updateCart = () => {
                                     <h1>${item.name}</h1>
                                     <p>৳${item.price}</p>
                                 </div>
-                                <div class="cursor-pointer text-red-500 remove-item" data-index="${index}">❌</div>
+                                <button class="cursor-pointer text-red-500 remove-item" data-index="${index}">❌</button>
                             </div>
         `;
         total += item.price;
